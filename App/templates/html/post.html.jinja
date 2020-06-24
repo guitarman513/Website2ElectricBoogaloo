@@ -1,0 +1,35 @@
+{% extends "base_html/page_base.html"%}
+{% block page %}
+
+<article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h1>{{ post_['title']}}</h1>
+          <p>{{ post_['description']}}</p>
+          <p class="post-meta">Posted by
+            <a href="#">Joe</a>
+            on {{ post_['date'] }}
+            </p>
+
+            {% if post_['images'].split(',')[0] != 'nothing' %}
+            <img src='{{ (post_['images'].split(',')[0]).replace(' ','_')|string() }}' class="rounded float-right img-thumbnail" alt="img" >
+            {% endif %}
+            {% if post_['images'].split(',')[1] %}
+            <img src='{{ (post_['images'].split(',')[1]).replace(' ','_')|string() }}' class="rounded float-right img-thumbnail" alt="img" >
+            {% endif %}
+            {% if post_['images'].split(',')[2] %}
+            <img src='{{ (post_['images'].split(',')[2]).replace(' ','_')|string() }}' class="rounded float-right img-thumbnail" alt="img" >
+            {% endif %}
+            {% if post_['youtube'].split(',')[0] != 'nothing' %}
+            <iframe class="embed-responsive-item img-thumbnail float-right" src={{ "https://www.youtube.com/embed/" + post_['youtube'].split(',')[0].split('=')[-1] }}   ></iframe>
+            {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+{% endblock %}

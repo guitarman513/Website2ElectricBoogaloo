@@ -1,0 +1,55 @@
+{"posts":[
+    {
+        "title":"DIY Guitar",
+        "description":"The summer before I started college my high school physics teacher invited me to come in a couple days per week so that we could each build guitars together. We took a unique approach, designing the body in CAD and then using a laser cutter to slice sections of quarter inch slabs of different woods. I wired up the pickups, which eventually led to me choosing EE as my major!",
+        "date":"May 01, 2015",
+        "media":{
+            "images":[
+                "/static/img/projPics/guitar2.JPG",
+                "/static/img/projPics/guitar1.PNG"
+            ]
+        }
+    },
+    {
+        "title":"DIY 3D Printer",
+        "description":"After my first Coop during the summer of Sophomore year, I wanted to get into 3D printing, so I bought a kit with all of the parts included. It taught me what goes into 3D printing from all of the stepper motors, motor drivers, slicing software, etc. It also landed me my second Coop at a 3D printing company!",
+        "date":"May 01, 2016",
+        "media":{
+            "images":[
+                "/static/img/projPics/3d1.png",
+                "/static/img/projPics/3d2.png"
+            ]
+        }
+    },
+    {
+        "title":"Speakers",
+        "description":"Had a coworker give me his old car's sub woofer, so I bought some 16x9 car speakers and wired up this large speaker.",
+        "date":"May 01, 2017",
+        "media":{
+            "images":[
+                "/static/img/projPics/speaker1.PNG",
+                "/static/img/projPics/speakDone.PNG"
+            ]
+        }
+    },
+    {
+        "title":"Power Electronics",
+        "description":"Throughout college I've been taking courses on Power Electronics and Magnetics. I never received a proper answer about some fundamental questions I had on the subject. I couldn't find answers on youtube (my usual go-to) so I made my own video. I plan on recording more of these in the future, since there are hardly any helpful power electronics videos on youtube.",
+        "date":"Aug 29, 2019",
+        "media":{
+            "yt":[
+                "https://www.youtube.com/watch?v=0D2YgDl39Fk"
+            ]
+        }
+    },
+    {
+        "title":"Amie Pure Prarie League Cover",
+        "description":"Rough cover",
+        "date":"July 29, 2019",
+        "media":{
+            "yt":[
+                "https://www.youtube.com/watch?v=_sxBjphmoNY"
+            ]
+        }
+    }
+]}

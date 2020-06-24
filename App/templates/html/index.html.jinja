@@ -1,0 +1,57 @@
+{% extends "base_html/page_base.html"%}
+{% block page %}
+
+
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {% for index,row in postData.iterrows() %}
+
+            <div class="post-preview">
+              <!-- use 'nothing' as placeholder for nothing in the csv -->
+              {% if row['images'] != 'nothing' %}
+              {#  {{ debug(row) }}  #}
+              <img src='{{ (row['images'].split(',')[0]).replace(' ','_')|string() }}' class="rounded float-right img-thumbnail" alt="NEU" style="height: 120px;">
+              {% elif row['yt'] != 'nothing' %}
+              <!-- youtube link is "https://www.youtube.com/watch?v=0D2YgDl39Fk" , proper embed formatting is "https://www.youtube.com/embed/0D2YgDl39Fk"-->
+              <iframe class="embed-responsive-item img-thumbnail float-right" src={{ "https://www.youtube.com/embed/" + row['youtube'].split(',')[0].split('=')[-1] }}   style="height: 120px;" ></iframe>
+              {% endif %}
+              <a href="/post/{{hashtext(  str(row['title'])+str(row['description'])+str(row['date'])   ) }}">
+                <h2 class="post-title">
+                  {{row['title']}}
+                </h2>
+                <h3 class="post-subtitle">
+                  {{row['description'][:50]}}...
+                </h3>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#">Joe</a>
+                on {{row['date']}}</p>
+            </div>
+            <hr>
+
+        {% endfor %}
+
+
+
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="all/1996/2096/">All Posts &rarr;</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+
+
+
+{% endblock %}

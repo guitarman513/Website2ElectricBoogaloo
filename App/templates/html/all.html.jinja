@@ -1,0 +1,88 @@
+{% extends "base_html/page_base.html"%}
+{% block page %}
+
+
+
+
+<!-- Use dropdowns to get startyear, end year, post type -->
+<div class="container mx-auto">
+<div class="row">
+
+    <div class="dropdown col-xs-4" >
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Start Year: {{ filterInfo[0] }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for year in years %}
+        <a class="dropdown-item" value="{{ year }}" href={{ "/all/" + year|string() + "/" + filterInfo[1] + "/" }} > {{ year }}</a>
+        {% endfor %}
+
+      </div>
+    </div>
+
+      <div class="dropdown col-xs-4">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          End Year: {{ filterInfo[1] }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {% for year in years %}
+          <a class="dropdown-item" value="{{ year }}" href={{ "/all/" + filterInfo[0] + "/" + year|string() + "/"  }} > {{ year }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      </div>
+</div>
+</div>
+
+
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        {% for index,row in postData.iterrows() %}
+
+            <div class="post-preview">
+              <!-- use 'nothing' as placeholder for nothing in the csv -->
+              {% if row['images'] != 'nothing' %}
+              {{ debug(row['images'].split(',')[0]) }}
+              <img src='{{ (row['images'].split(',')[0]).replace(' ','_')|string() }}' class="rounded float-right img-thumbnail" alt="img" style="height: 120px;">
+              {% elif row['yt'] != 'nothing' %}
+              <!-- youtube link is "https://www.youtube.com/watch?v=0D2YgDl39Fk" , proper embed formatting is "https://www.youtube.com/embed/0D2YgDl39Fk"-->
+              <iframe class="embed-responsive-item img-thumbnail float-right" src={{ "https://www.youtube.com/embed/" + row['youtube'].split(',')[0].split('=')[-1] }}   style="height: 120px;" ></iframe>
+              {% endif %}
+              <a href="/post/{{hashtext(  str(row['title'])+str(row['description'])+str(row['date'])   ) }}">
+                <h2 class="post-title">
+                  {{row['title']}}
+                </h2>
+                <h3 class="post-subtitle">
+                  {{row['description'][:50]}}...
+                </h3>
+              </a>
+              <p class="post-meta">Posted by
+                <a href="#">Joe</a>
+                on {{row['date']}}</p>
+            </div>
+            <hr>
+
+        {% endfor %}
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+        
+
+
+
+{% endblock %}

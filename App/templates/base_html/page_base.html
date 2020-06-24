@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--General stuff for each page (maybe later have title get fed in a variable from each page)-->
+    <title>Joe's Blog</title>
+    <meta charset="utf-8">
+    <!----------current screen-----------device width--------100% scale (no zoom) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--include all css fonts img and js-->
+    {% include 'base_html/imports.html' %}
+
+
+</head>
+
+<body>
+
+    <!--Include navbar-->
+    {% include 'base_html/navbar.html' %}
+
+    <!--include the meat of each page here-->
+    {% block page %}
+    {% endblock %}
+
+    <!--Include Footer-->
+    {% include 'base_html/footer.html' %}
+
+</body>
+</html>
